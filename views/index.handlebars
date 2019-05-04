@@ -1,0 +1,144 @@
+<!-- Title -->
+<div id="page">
+    <div class="title">
+        <p>Eat · Da · Burger</p>
+        <hr class="line">
+    </div>
+    <div class='icon-scroll'></div>
+</div>
+<!--/. Title -->
+
+<!-- Purpose -->
+<h2 class="text-monospace container text-left">Hello Burger</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 font-weight-light text-muted">
+            <h4>Disclaimer</h4>
+            <p>This app is all about devouring delicious burgers for Week 14 Assignment, UofT
+                Coding Bootcamp Course. However,
+                the
+                developer
+                wanted to
+                explore further to solve issues related to dining at restaurants based on her series of unfortunate
+                experiences and encounterance.
+                Hello
+                Burger as an imaginery restaurant
+                that specialises in healthy gourmet burgers in Toronto, Canada.</p>
+
+            <h6>Do you...</h6>
+            <p>Get stressed about what to order before you dine at a restaurant on your date?
+                Forget what to order when the waitress/waiter takes your order?
+                Order the wrong thing everytime you're at a popular restaurant?</p>
+        </div>
+        <div class="col-md-4">
+            <img src="../assets/img/logo.jpg" alt="hello-burger-logo" class="img-fluid" height="700" width="700">
+        </div>
+    </div>
+</div>
+<!--/. Purpose -->
+
+<hr class="line">
+
+<!-- How it works -->
+<div class="howItWorks">
+    <h5>How it works:</h5>
+    <ul>
+        <li>1. <strong>View</strong> Menu Items</li>
+        <li>2. <strong>Add</strong> and <strong>Save</strong> your favourite menu items to the Food Wish List
+            (think of it as a shopping list)
+        </li>
+        <li>3. <strong>Reorder</strong> or <strong>Remove</strong> your saved menu items</li>
+    </ul>
+</div>
+<!--/. How it works -->
+
+<!-- Menu Section -->
+<div class="menu p-3 mb-5">
+    <h2 class="text-monospace">Menu Items</h2>
+    <div class="container">
+        <div class="row">
+            <!-- Hamburgers -->
+            <div class="col-sm text-right">
+                <ul>
+                    <h5><i class="fas fa-hamburger"></i></h5>
+                    <li>Cheese burger</li>
+                    <li>Double cheese burger</li>
+                    <li>Spicy chicken burger</li>
+                    <li>Veggie burger</li>
+                    <li>Fish burger</li>
+                    <li>Steak sandwich</li>
+                </ul>
+            </div>
+            <!-- Sides -->
+            <div class="col-sm text-right">
+                <ul>
+                    <h5><i class="fas fa-cookie-bite"></i></h5>
+                    <li>Hot chips</li>
+                    <li>Sweet potato chips</li>
+                    <li>Onion rings</li>
+                    <li>Cookies</li>
+                </ul>
+            </div>
+            <!-- Drinks -->
+            <div class="col-sm text-right">
+                <ul>
+                    <h5><i class="fas fa-beer"></i></h5>
+                    <li>Molson Canadian</li>
+                    <li>House wine</li>
+                    <li>Asahi</li>
+                    <li>Sapporo</li>
+                    <li>Soju</li>
+                    <li>Bubble tea</li>
+                    <li>Coke</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Order & Devoured -->
+    <div id="devoured" class="orderDevoured">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 text-left">
+                    <h4 class="text-monospace">Food Wish List</h4>
+                    <form class="create-form" name="myForm" onsubmit="return validateForm()" method="POST">
+                        <div class="form-group">
+                            <label for="bu">Add Favourite Menu Items: </label>
+                            <input type="text" id="bu" name="name" placeholder="Type something...">
+                            <button id="button" type="submit"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </form>
+                    <ul class="list-group text-left">
+                        {{#each burgers}}
+                        {{#unless devoured}}
+                        {{> burgers/burger-block devoured=true}}
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="devourIt col-md-5 shadow-none mb-5 p-3 bg-light rounded">
+                    <h4 class="text-monospace text-center">Devoured It!</h4>
+                    <ul class="list-group text-right">
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        {{> burgers/burger-block devoured=false}}
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/. Order & Devoured -->
+</div>
+<!--/. Menu Section -->
+
+<!-- Footer -->
+<footer>
+    <div id="footer-text">
+        Copyright &copy;
+        <script>document.write(new Date().getFullYear());</script> <span> Kathy Chen</span><br>
+        <p>Made with <i class="fas fa-heart" aria-hidden="true"></i> in Toronto, Canada</p>
+        <a href="http://github.com/xmkchen"><i class="fab fa-github-alt"><span>GitHub</span></i>
+    </div>
+</footer>
+<!--/. Footer -->
